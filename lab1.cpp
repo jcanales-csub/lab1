@@ -71,7 +71,7 @@ int main()
 			x11.check_mouse(&e);
 			done = x11.check_keys(&e);
 		
-			if (xres <= 300)
+			if (g.xres <= 300)
 			{	
 				physics();
 				render_red();
