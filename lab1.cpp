@@ -50,7 +50,8 @@ public:
 //Function prototypes
 void init_opengl(void);
 void physics(void);
-void render(void);
+void render_red(void);
+void render_blue(void);
 
 
 
@@ -69,11 +70,22 @@ int main()
 			x11.check_resize(&e);
 			x11.check_mouse(&e);
 			done = x11.check_keys(&e);
-		}
-		physics();
-		render();
-		x11.swapBuffers();
-		usleep(200);
+		
+			if (xres <= 300)
+			{	
+				physics();
+				render_red();
+				x11.swapBuffers();
+				usleep(200);
+			}
+			else 
+			{
+				physics();
+				render_blue();
+				x11.swapBuffers();
+				usleep(200);		
+			}
+		}	
 	}
 	return 0;
 }
@@ -261,7 +273,7 @@ void physics()
 
 }
 
-void render()
+void render_red()
 {
 	//
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -279,8 +291,19 @@ void render()
 	glPopMatrix();
 }
 
-
-
-
-
-
+void render_blue()
+{
+        //
+        glClear(GL_COLOR_BUFFER_BIT);
+        //Draw box.
+        glPushMatrix();
+        glColor3ub(150, 160, 220);
+        //glColor3f(1.0, 0.0, 0.0);
+        glTranslatef(g.pos[0], g.pos[1], 0.0f);
+        glBegin(GL_QUADS);
+                glVertex2f(-g.w, -g.w);
+                glVertex2f(-g.w,  g.w);
+                glVertex2f( g.w,  g.w);
+                glVertex2f( g.w, -g.w);
+}
+~
