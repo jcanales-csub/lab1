@@ -70,7 +70,7 @@ int main()
 			x11.check_resize(&e);
 			x11.check_mouse(&e);
 			done = x11.check_keys(&e);
-		
+		}	
 			if (g.xres <= 300)
 			{	
 				physics();
@@ -85,7 +85,6 @@ int main()
 				x11.swapBuffers();
 				usleep(200);		
 			}
-		}	
 	}
 	return 0;
 }
@@ -95,7 +94,7 @@ Global::Global()
 	xres = 400;
 	yres = 200;
     	w = 20.0f;
-    	dir = 1.0f;
+    	dir = 10.0f;
     	pos[0] = 0.0f + w;
     	pos[1] = yres / 2.0f;
 
@@ -306,4 +305,4 @@ void render_blue()
                 glVertex2f( g.w,  g.w);
                 glVertex2f( g.w, -g.w);
 }
-~
+
