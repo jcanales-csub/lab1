@@ -71,20 +71,20 @@ int main()
 			x11.check_mouse(&e);
 			done = x11.check_keys(&e);
 		}	
-			if (g.xres <= 300)
-			{	
-				physics();
-				render_red();
-				x11.swapBuffers();
-				usleep(200);
-			}
-			else 
-			{
-				physics();
-				render_blue();
-				x11.swapBuffers();
-				usleep(200);		
-			}
+		if (g.xres <= 300)
+		{	
+			physics();
+			render_red();
+			x11.swapBuffers();
+			usleep(200);
+		}
+		else 
+		{
+			physics();
+			render_blue();
+			x11.swapBuffers();
+			usleep(200);		
+		}
 	}
 	return 0;
 }
